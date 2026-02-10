@@ -12,6 +12,7 @@ app.use(express.text());
 app.use(express.urlencoded());
 
 app.use("/api", apiRouter);
+app.use("/api", apiRouter);
 
 app.get("/", (req, res) => {
   return res.json({
