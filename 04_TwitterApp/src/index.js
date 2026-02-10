@@ -45,6 +45,13 @@ app.post("/about", (req, res) => {
   });
 });
 
+app.get("/tweets/:tweet_id", (req, res) => {
+  console.log(req.params);
+  return res.json({
+    message: "Params se data aaya",
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server is runnung at PORT: 3000");
 });
