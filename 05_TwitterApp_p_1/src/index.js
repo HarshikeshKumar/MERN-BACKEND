@@ -9,23 +9,15 @@ app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
 
+app.get("/", (req, res) => {
+  return res.json({
+    message: "This is Home Page",
+  });
+});
+
 app.get("/ping", (req, res) => {
   return res.json({
     message: "Pong",
-  });
-});
-
-app.post("/hello", (req, res) => {
-  console.log(req.query);
-  console.log(req.body);
-  return res.json({
-    message: "World",
-  });
-});
-
-app.get("/tweets/:tweet_id/comments/:comment_id", (req, res) => {
-  return res.json({
-    message: "tweet details",
   });
 });
 
