@@ -18,7 +18,7 @@ function mid3(req, res, next) {
   next();
 }
 
-app.get("/ping", mid1, mid2, mid3, (req, res) => {
+app.get("/ping", mid1, (req, res) => {
   return res.json({
     message: "Pong",
   });
