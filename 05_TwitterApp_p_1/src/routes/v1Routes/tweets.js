@@ -4,13 +4,13 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   return res.json({
-    message: "Welcome to the tweets route",
+    message: "Welcome to the V1 tweets route",
   });
 });
 
 router.get("/:id", (req, res) => {
   return res.json({
-    message: "Tweet router with ID",
+    message: "V1 tweets route with ID",
     id: req.params.id,
   });
 });

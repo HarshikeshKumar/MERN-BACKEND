@@ -1,10 +1,10 @@
 import express from "express";
-import tweetRouter from "./tweets.js";
-import commentRouter from "./comments.js";
+import v1Router from "./v1Routes/v1Routes.js";
+import v2Router from "./v2Routes/v2Routes.js";
 
 const router = express.Router();
 
-router.use("/tweets", tweetRouter);
-router.use("/comments", commentRouter);
+router.use("/v1", v1Router);
+router.use("/v2", v2Router);
 
 export default router;
