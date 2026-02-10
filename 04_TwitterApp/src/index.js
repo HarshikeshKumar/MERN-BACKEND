@@ -5,6 +5,10 @@ const app = express();
 
 app.use(morgan("combined"));
 
+app.use(express.json());
+app.use(express.text());
+app.use(express.urlencoded());
+
 // function mid1(req, res, next) {
 //   console.log(next);
 //   console.log("mid1");
@@ -34,7 +38,8 @@ app.get("/hello", (req, res) => {
 });
 
 app.post("/about", (req, res) => {
-  console.log(req.query);
+  console.log("QIUERY PARAMS: ", req.query);
+  console.log("REQ BODY: ", req.body);
   return res.json({
     message: "ok",
   });
