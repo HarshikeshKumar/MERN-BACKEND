@@ -33,6 +33,13 @@ app.get("/hello", (req, res) => {
   });
 });
 
+app.post("/about", (req, res) => {
+  console.log(req.query);
+  return res.json({
+    message: "ok",
+  });
+});
+
 app.listen(3000, () => {
   console.log("Server is runnung at PORT: 3000");
 });
