@@ -1,4 +1,4 @@
-export default validate = (schema) => {
+const validate = (schema) => {
   // it returns a validating middleware
   return async (req, res, next) => {
     try {
@@ -14,3 +14,5 @@ export default validate = (schema) => {
     }
   };
 };
+
+export default validate;
