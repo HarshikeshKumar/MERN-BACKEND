@@ -23,3 +23,9 @@ export const getV2TweetById = (req, res) => {
     id: req.params.id,
   });
 };
+
+export const createV1Tweet = (req, res) => {
+  return res.json({
+    message: "V1 tweet Successfully created",
+  });
+};
