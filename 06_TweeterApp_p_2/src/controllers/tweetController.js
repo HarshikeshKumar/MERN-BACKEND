@@ -10,3 +10,16 @@ export const getTweetById = (req, res) => {
     id: req.params.id,
   });
 };
+
+export const v2getTweet = (req, res) => {
+  return res.json({
+    message: "V2 tweet route",
+  });
+};
+
+export const v2GetTweetById = (req, res) => {
+  return res.json({
+    message: "V2 tweet route",
+    id: req.params.id,
+  });
+};
