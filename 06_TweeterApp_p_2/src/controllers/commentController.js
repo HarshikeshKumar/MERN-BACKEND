@@ -10,3 +10,16 @@ export const v1GetCommentById = (req, res) => {
     id: req.params.id,
   });
 };
+
+export const v2GetComment = (req, res) => {
+  return res.json({
+    message: "V2 comments routes",
+  });
+};
+
+export const v2GetCommentsById = (req, res) => {
+  return res.json({
+    message: "V2 comment route with ID",
+    id: req.params.id,
+  });
+};
