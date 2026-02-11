@@ -8,7 +8,10 @@ export const createTweetService = async ({ body }) => {
   if (filter.isProfane(body)) {
     console.log(body);
     console.log(filter.clean(body));
-    throw new Error("Tweet contain blocked words");
+    throw {
+      message: "Tweet contains blocked words",
+      status: 400,
+    };
   }
 
   const tweet = await createTweetRepository({ body });
