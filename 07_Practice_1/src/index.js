@@ -1,4 +1,5 @@
 import express from "express";
+import morgan from "morgan";
 import apiRouter from "./routes/apiRouter.js";
 
 const app = express();
@@ -6,6 +7,8 @@ const app = express();
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded());
+
+app.use(morgan("combined"));
 
 app.use("/api", apiRouter);
 
