@@ -5,5 +5,10 @@ export const createManualTweetValidator = (req, res, next) => {
       error: "Tweet is required",
     });
   }
+  if (req.body.tweet.length >= 280) {
+    return res.status(400).json({
+      error: "tweet must be 280 characters or less",
+    });
+  }
   next();
 };
