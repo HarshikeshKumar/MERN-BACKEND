@@ -2,6 +2,7 @@ import express from "express";
 import {
   getV1Tweet,
   getV1TweetById,
+  v1CreateTweet,
 } from "../../controllers/tweetControllers.js";
 
 const router = express.Router();
@@ -9,5 +10,7 @@ const router = express.Router();
 router.get("/", getV1Tweet);
 
 router.get("/:id", getV1TweetById);
+
+router.post("/", v1CreateTweet);
 
 export default router;
