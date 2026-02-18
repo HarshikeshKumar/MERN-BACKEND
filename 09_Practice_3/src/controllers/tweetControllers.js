@@ -27,6 +27,6 @@ export const getV2TweetById = (req, res) => {
 export const v1CreateTweet = (req, res) => {
   return res.status(201).json({
     message: "V1 Tweet Created",
-    success: true,
+    body: req.body,
   });
 };
