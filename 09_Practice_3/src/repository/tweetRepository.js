@@ -1,5 +1,4 @@
-import Tweet from "../../../06_TweeterApp_p_2/src/schema/tweetSchema.js";
-
+import Tweet from "../schema/tweetSchema.js";
 // Create Tweet.........
 export const createTweet = async ({ body }) => {
   try {
