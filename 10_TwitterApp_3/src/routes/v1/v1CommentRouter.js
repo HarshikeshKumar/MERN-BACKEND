@@ -1,18 +1,13 @@
 import express from "express";
+import {
+  getV1Comment,
+  getV1CommentById,
+} from "../../controllers/commentController.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  return res.json({
-    message: "V1 comments router",
-  });
-});
+router.get("/", getV1Comment);
 
-router.get("/:id", (req, res) => {
-  return res.json({
-    message: "V1 comments router with ID",
-    id: req.params.id,
-  });
-});
+router.get("/:id", getV1CommentById);
 
 export default router;
