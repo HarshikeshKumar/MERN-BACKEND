@@ -1,6 +1,7 @@
 import {
   createTweetService,
   getTweets as getTweetsService,
+  getTweetById as getTweetByIdService,
 } from "../services/tweetService.js";
 
 // export const getV1Tweet = (req, res) => {
@@ -9,12 +10,12 @@ import {
 //   });
 // };
 
-export const getV1TweetById = (req, res) => {
-  return res.json({
-    message: "V1 tweets router with ID",
-    id: req.params.id,
-  });
-};
+// export const getV1TweetById = (req, res) => {
+//   return res.json({
+//     message: "V1 tweets router with ID",
+//     id: req.params.id,
+//   });
+// };
 
 export const getV2Tweet = (req, res) => {
   return res.json({
@@ -79,6 +80,33 @@ export const getTweets = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
+      success: false,
+    });
+  }
+};
+
+// Tweet FETCHED BY ID.......
+// STEP2:- HERE..................
+// STEP3:- In ManualTweetValidator
+export const getTweetById = async (req, res) => {
+  try {
+    const response = await getTweetByIdService(req.params.id);
+
+    return res.status(200).json({
+      success: true,
+      data: response,
+      message: "Tweet Fetched Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    if (error.status) {
+      return res.status(error.status).json({
+        message: error.message,
+        success: false,
+      });
+    }
     return res.status(500).json({
       message: "Internal Server Error",
       success: false,

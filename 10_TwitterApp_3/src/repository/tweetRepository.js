@@ -14,6 +14,14 @@ export const createTweetRepository = async ({ body }) => {
 export const getTweet = async (tweetId) => {
   try {
     const tweet = await Tweet.findById(tweetId);
+
+    if (!tweet) {
+      throw {
+        message: "Tweet Not Found",
+        status: 404,
+      };
+    }
+
     return tweet;
   } catch (error) {
     throw error;
