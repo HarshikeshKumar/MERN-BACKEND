@@ -1,7 +1,7 @@
 import Tweet from "../schema/tweetSchema.js";
 
 // Create tweet......
-export const createTweet = async ({ body }) => {
+export const createTweetRepository = async ({ body }) => {
   try {
     const tweet = await Tweet.create({ body });
     return tweet;
