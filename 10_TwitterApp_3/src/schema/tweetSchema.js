@@ -1,9 +1,8 @@
 import mongoose from "mongoose";
-import { string, trim } from "zod";
 
 const tweetSchema = new mongoose.Schema({
   body: {
-    type: string,
+    type: String,
     required: true,
     trim: true,
     maxlength: 280,

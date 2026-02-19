@@ -1,11 +1,13 @@
-import { success } from "zod";
-import { createTweetService } from "../services/tweetService.js";
+import {
+  createTweetService,
+  getTweets as getTweetsService,
+} from "../services/tweetService.js";
 
-export const getV1Tweet = (req, res) => {
-  return res.json({
-    message: "V1 tweets router",
-  });
-};
+// export const getV1Tweet = (req, res) => {
+//   return res.json({
+//     message: "V1 tweets router",
+//   });
+// };
 
 export const getV1TweetById = (req, res) => {
   return res.json({
@@ -56,6 +58,29 @@ export const createTweet = async (req, res) => {
     }
     return res.status(500).json({
       message: "Internal Server error",
+      success: false,
+    });
+  }
+};
+
+// FETCHED ALL TWEETS................
+
+// STEP2:- Yaha getTweets Service Layer ko controllers me call krr raha hu....
+// STEP3:- Register in Routes...
+// STEP2:- Here, Service Layer call here...
+export const getTweets = async (req, res) => {
+  try {
+    const response = await getTweetsService();
+
+    return res.status(200).json({
+      success: true,
+      data: response,
+      message: "Tweets Fetched Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Internal Server Error",
       success: false,
     });
   }
