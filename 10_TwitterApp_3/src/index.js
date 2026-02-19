@@ -2,6 +2,7 @@ import express from "express";
 import apiRouter from "./routes/api/apiRouter.js";
 
 import morgan from "morgan";
+import { PORT } from "./config/serverConfig.js";
 
 const app = express();
 
@@ -24,6 +25,6 @@ app.get(/.*/, (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is Running at PORT: 3000");
+app.listen(PORT, () => {
+  console.log(`Server is Running at PORT: ${PORT}`);
 });
