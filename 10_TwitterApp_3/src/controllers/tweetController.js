@@ -156,7 +156,7 @@ export const updateTweet = async (req, res) => {
     console.log(error);
     if (error.status) {
       return res.status(error.status).json({
-        message: error.status,
+        message: error.message,
         success: false,
       });
     }
