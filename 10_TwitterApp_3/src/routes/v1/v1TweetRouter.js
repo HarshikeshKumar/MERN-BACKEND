@@ -4,6 +4,7 @@ import {
   deleteTweet,
   getTweetById,
   getTweets,
+  updateTweet,
   // getV1Tweet,
   // getV1TweetById,
 } from "../../controllers/tweetController.js";
@@ -23,5 +24,8 @@ router.post("/", tweetZodValidator(tweetZodSchema), createTweet);
 
 // STEP5:- Register DELETETWEET Controller Here......
 router.delete("/:id", getTweetByIdManualValidator, deleteTweet);
+
+// UPDATE Tweet.......
+router.put("/:id", getTweetByIdManualValidator, updateTweet);
 
 export default router;

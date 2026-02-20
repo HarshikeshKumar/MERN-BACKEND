@@ -4,6 +4,7 @@ import {
   getAllTweet as getAllTweetRepository,
   getTweet as getTweetRepository,
   deleteTweet as deleteTweetRepository,
+  updateTweet as updateTweetRepository,
 } from "../repository/tweetRepository.js";
 
 export const createTweetService = async ({ body }) => {
@@ -48,6 +49,20 @@ export const getTweetById = async (id) => {
 // STEP3:- In Controller....
 export const deleteTweet = async (id) => {
   const response = await deleteTweetRepository(id);
+
+  if (!response) {
+    throw {
+      message: "Tweet Not Found",
+      status: 404,
+    };
+  }
+
+  return response;
+};
+
+// UPDATE TWEET............
+export const updateTweet = async (id, body) => {
+  const response = await updateTweetRepository(id, body);
 
   if (!response) {
     throw {

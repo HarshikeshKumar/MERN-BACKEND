@@ -49,3 +49,20 @@ export const deleteTweet = async (tweetId) => {
     throw error;
   }
 };
+
+// UPDATE TWEET............
+export const updateTweet = async (tweetId, body) => {
+  try {
+    // const tweet = await Tweet.findByIdAndUpdate(tweetId, { body }); //Ye Update hone se pahele wala data dega
+
+    const tweet = await Tweet.findByIdAndUpdate(
+      tweetId,
+      { body },
+      { new: true },
+    );
+
+    return tweet;
+  } catch (error) {
+    throw error;
+  }
+};

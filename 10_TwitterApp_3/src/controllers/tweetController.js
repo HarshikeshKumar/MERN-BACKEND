@@ -3,6 +3,7 @@ import {
   getTweets as getTweetsService,
   getTweetById as getTweetByIdService,
   deleteTweet as deleteTweetService,
+  updateTweet as updateTweetService,
 } from "../services/tweetService.js";
 
 // export const getV1Tweet = (req, res) => {
@@ -137,6 +138,31 @@ export const deleteTweet = async (req, res) => {
     return res.status(500).json({
       message: "Something went wrong",
       success: false,
+    });
+  }
+};
+
+// UPDATE TWEET.............
+export const updateTweet = async (req, res) => {
+  try {
+    const response = await updateTweetService(req.params.id, req.body.body);
+
+    return res.status(200).json({
+      success: true,
+      message: "Successfully Updated the Tweet",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    if (error.status) {
+      return res.status(error.status).json({
+        message: error.status,
+        success: false,
+      });
+    }
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server Error",
     });
   }
 };
