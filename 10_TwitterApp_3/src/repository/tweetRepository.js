@@ -37,3 +37,15 @@ export const getAllTweet = async () => {
     throw error;
   }
 };
+
+// DELETE TWEET................................
+// STEP1:- Here...
+// STEP2:- In SERVICE..........
+export const deleteTweet = async (tweetId) => {
+  try {
+    const tweet = await Tweet.findByIdAndDelete(tweetId);
+    return tweet;
+  } catch (error) {
+    throw error;
+  }
+};

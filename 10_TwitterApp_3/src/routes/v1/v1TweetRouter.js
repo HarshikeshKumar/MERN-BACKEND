@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createTweet,
+  deleteTweet,
   getTweetById,
   getTweets,
   // getV1Tweet,
@@ -19,5 +20,8 @@ router.get("/", getTweets);
 router.get("/:id", getTweetByIdManualValidator, getTweetById);
 
 router.post("/", tweetZodValidator(tweetZodSchema), createTweet);
+
+// STEP5:- Register DELETETWEET Controller Here......
+router.delete("/:id", getTweetByIdManualValidator, deleteTweet);
 
 export default router;

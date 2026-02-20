@@ -3,6 +3,7 @@ import {
   createTweetRepository,
   getAllTweet as getAllTweetRepository,
   getTweet as getTweetRepository,
+  deleteTweet as deleteTweetRepository,
 } from "../repository/tweetRepository.js";
 
 export const createTweetService = async ({ body }) => {
@@ -41,3 +42,19 @@ export const getTweetById = async (id) => {
 // STEP2:- In Controllers
 // STEP3:- In tweetManualValidator
 // STEP4:- In Routes
+
+// DELETE TWEET...............
+// STEP2:- Here..............
+// STEP3:- In Controller....
+export const deleteTweet = async (id) => {
+  const response = await deleteTweetRepository(id);
+
+  if (!response) {
+    throw {
+      message: "Tweet Not Found",
+      status: 404,
+    };
+  }
+
+  return response;
+};

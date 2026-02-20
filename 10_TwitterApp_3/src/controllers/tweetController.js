@@ -2,6 +2,7 @@ import {
   createTweetService,
   getTweets as getTweetsService,
   getTweetById as getTweetByIdService,
+  deleteTweet as deleteTweetService,
 } from "../services/tweetService.js";
 
 // export const getV1Tweet = (req, res) => {
@@ -109,6 +110,32 @@ export const getTweetById = async (req, res) => {
     }
     return res.status(500).json({
       message: "Internal Server Error",
+      success: false,
+    });
+  }
+};
+
+// DELETE TWEET ................
+// STEP3:- Here.....
+// STEP4:- In Validator..........
+export const deleteTweet = async (req, res) => {
+  try {
+    const response = await deleteTweetService(req.params.id);
+    return res.status(200).json({
+      success: true,
+      message: "Successfully deleted the tweet",
+      data: response,
+    });
+  } catch (error) {
+    console.log(error);
+    if (error.status) {
+      return res.status(error.status).json({
+        message: error.message,
+        success: false,
+      });
+    }
+    return res.status(500).json({
+      message: "Something went wrong",
       success: false,
     });
   }
